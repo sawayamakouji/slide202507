@@ -5,6 +5,8 @@ import {
   useCurrentFrame,
   useVideoConfig,
   spring,
+  Img, // Imgコンポーネントを追加
+  Audio, // Audioコンポーネントを追加
 } from 'remotion';
 import { z } from 'zod';
 import { zColor } from '@remotion/zod-types';
@@ -21,6 +23,8 @@ export const myVideoSchema = z.object({
       description: z.string().optional(),
       code: z.string().optional(),
       color: zColor().optional(),
+      image: z.string().optional(), // imageプロパティを追加
+      audio: z.string().optional(), // audioプロパティを追加
     })
   ),
 });
@@ -101,6 +105,18 @@ export const MyVideo: React.FC<z.infer<typeof myVideoSchema>> = ({ scenario }) =
       {scenario.map((scene, index) => {
         return (
           <Sequence key={index} from={index * SCENE_DURATION} durationInFrames={SCENE_DURATION}>
+            {scene.image && (
+              <Img
+                src={scene.image}
+                style={{
+                  position: 'absolute',
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                }}
+              />
+            )}
+            {scene.audio && <Audio src={scene.audio} />}
             {(() => {
               switch (scene.type) {
                 case 'title':
