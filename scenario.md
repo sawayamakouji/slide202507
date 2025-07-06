@@ -1,24 +1,33 @@
 ---
 type: title
-text: Gemini CLIで動画作成
+text: Gemini CLIで動画自動生成アプリの使い方
 color: "#FF6F00"
 ---
 type: info
-title: シナリオはGemini CLIで
-children: Gemini CLIに話しかけるだけで<br />動画のシナリオが描いてもらってシナリオ.mdに
+title: アプリの概要
+children: このアプリは、テキストファイルから<br />簡単なスライド<br />動画を自動生成するツールです。
 ---
 type: info
-title: コミットするだけ
-children: シナリオをコミットすれば<br />GitHub Actionsが自動で動画をレンダリング
+title: シナリオの編集
+children: `scenario.md`を編集するだけで<br />動画の内容を簡単に変更できます。
 ---
 type: info
-title: ブラウザで確認！！
-children: レンダリングされた動画は<br />GitHubからダウンロードできます
+title: GitHub Actionsで自動生成
+children: `scenario.md`をコミットプッシュすると<br />GitHub Actionsが自動で動画をレンダリングします。
 ---
 type: info
-image: /images/download.png
+title: Google Driveへの自動アップロード
+children: 設定すれば、レンダリングされた動画は<br />Google Driveに自動でアップロードされます。
 ---
 type: info
-title: 試してみようぜい！！！！！！！
-children: あなたもGemini CLIと<br/>GitHub Actionsで<br/>動画を自動作成！
+title: ローカルでの確認
+children: `npm run dev`で、GitHubにプッシュする前に<br />ローカルで動画のプレビューを確認できます。
+---
+type: info
+title: フォークして使ってみよう！
+children: このリポジトリをフォークすれば<br />あなたも簡単に動画を自動生成できます！
+---
+type: info
+title: ✌
+children: 詳しい使い方は readmeファイル読んでください  
 ---
