@@ -7,6 +7,7 @@ import {
   spring,
   Img, // Imgコンポーネントを追加
   Audio, // Audioコンポーネントを追加
+  staticFile, // staticFileを追加
 } from 'remotion';
 import { z } from 'zod';
 import { zColor } from '@remotion/zod-types';
@@ -60,12 +61,12 @@ const TitleScene: React.FC<{ text: string; color: string }> = ({ text, color }) 
 };
 
 // 汎用的な説明シーンのコンポーネント
-const InfoScene: React.FC<{ title: string; children: string }> = ({ title, children }) => {
+const InfoScene: React.FC<{ title: string; children: string; image?: string }> = ({ title, children, image }) => {
   const titleAnim = useAppearAnimation(0);
   const contentAnim = useAppearAnimation(15);
 
   return (
-    <AbsoluteFill className="bg-gray-900 items-center justify-center text-center p-8">
+    <AbsoluteFill className={image ? "bg-transparent" : "bg-gray-900"} items-center justify-center text-center p-8>
       <h2 style={titleAnim} className="text-8xl font-bold text-white mb-12 drop-shadow-lg">
         {title}
       </h2>
@@ -107,7 +108,7 @@ export const MyVideo: React.FC<z.infer<typeof myVideoSchema>> = ({ scenario }) =
           <Sequence key={index} from={index * SCENE_DURATION} durationInFrames={SCENE_DURATION}>
             {scene.image && (
               <Img
-                src={scene.image}
+                src={staticFile(scene.image)}
                 style={{
                   position: 'absolute',
                   width: '100%',
@@ -121,15 +122,15 @@ export const MyVideo: React.FC<z.infer<typeof myVideoSchema>> = ({ scenario }) =
               switch (scene.type) {
                 case 'title':
                   return scene.text && scene.color ? (
-                    <TitleScene text={scene.text} color={scene.color} />
+                    <TitleScene text={scene.text} color={scene.color} image={scene.image} />
                   ) : null;
                 case 'info':
                   return scene.title && scene.children ? (
-                    <InfoScene title={scene.title} children={scene.children} />
+                    <InfoScene title={scene.title} children={scene.children} image={scene.image} />
                   ) : null;
                 case 'code':
                   return scene.description && scene.code ? (
-                    <CodeScene description={scene.description} code={scene.code} />
+                    <CodeScene description={scene.description} code={scene.code} image={scene.image} />
                   ) : null;
                 default:
                   return null;

@@ -98,24 +98,41 @@ color: "#FF6F00"  <-- ここで色を指定します (例: 赤なら "#FF0000", 
     例: `public/images/my_image.png`, `public/audio/my_sound.mp3`
 
 3.  **Remotionのコンポーネントで利用**:
-    配置した画像や音は、Remotionのコンポーネント（例: `src/MyVideo.tsx` や新しく作成するコンポーネント）から参照して利用します。
+    `scenario.md`の各シーンに `image:` や `audio:` プロパティを追加し、`public` ディレクトリからの相対パスを指定することで、Remotionのコンポーネントが自動的にそれらの画像や音源を利用します。
+    （例: `image: /images/my_image.png`, `audio: /audio/my_sound.mp3`）
 
-    *   **画像の場合**: `<img>` タグを使って、`src` 属性に `public` ディレクトリからの相対パスを指定します。
-        ```tsx
-        import { Img } from 'remotion';
+#### シナリオでの指定方法
 
-        // ...
-        <Img src="/images/my_image.png" />
-        ```
-    *   **音声の場合**: `Audio` コンポーネントを使って、`src` 属性に `public` ディレクトリからの相対パスを指定します。
-        ```tsx	sx
-        import { Audio } from 'remotion';
+`scenario.md`の各シーンブロックに、以下のように `image:` や `audio:` プロパティを追加します。
 
-        // ...
-        <Audio src="/audio/my_sound.mp3" />
-        ```
+```markdown
+---
+type: info
+title: 画像付きのシーン
+children: このシーンには画像が表示されます。
+image: /images/my_image.png  <-- publicディレクトリからの相対パス
+---
+---
+type: info
+title: 音声付きのシーン
+children: このシーンでは音楽が流れます。
+audio: /audio/background_music.mp3  <-- publicディレクトリからの相対パス
+---
+---
+type: info
+title: 画像と音声付きのシーン
+children: このシーンでは画像と音楽が同時に表示されます。
+image: /images/another_image.png
+audio: /audio/effect_sound.mp3
+---
+```
 
-**注意**: 画像や音を追加した場合、`scenario.md`の形式だけではこれらを制御できません。`src/MyVideo.tsx`などのRemotionのコンポーネントを直接編集して、画像や音を表示・再生するロジックを追加する必要があります。これは少しプログラミングの知識が必要になります。
+*   `image:` の後には、表示したい画像の `public` ディレクトリからの相対パスを指定します。
+*   `audio:` の後には、再生したい音声ファイルの `public` ディレクトリからの相対パスを指定します。
+
+**重要**: 画像や音声ファイルは、必ず事前に `public` ディレクトリ内に配置してください。
+
+
 
 ### 4. 動画を自動生成しよう！ (GitHub Actions)
 
@@ -130,6 +147,14 @@ color: "#FF6F00"  <-- ここで色を指定します (例: 赤なら "#FF0000", 
     ```bash
     git push origin main
     ```
+
+    **もしプッシュがうまくいかない場合（エラーが出る場合）**
+    「`Updates were rejected because the tip of your current branch is behind`」のようなエラーが出た場合は、GitHub上の変更があなたのPCのファイルよりも新しいため、プッシュできません。
+    その場合は、まず以下のコマンドでGitHubの最新の変更をあなたのPCに取り込んでください。
+    ```bash
+    git pull origin main
+    ```
+    その後、もう一度 `git push origin main` を実行してください。
 
 プッシュが完了すると、GitHub上で自動的に動画のレンダリングが開始されます。
 

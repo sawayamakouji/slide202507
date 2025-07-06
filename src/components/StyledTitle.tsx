@@ -4,11 +4,12 @@ import { AbsoluteFill } from 'remotion';
 type StyledTitleProps = {
   children: React.ReactNode;
   color: string;
+  image?: string; // imageプロパティを追加
 };
 
-export const StyledTitle: React.FC<StyledTitleProps> = ({ children, color }) => {
+export const StyledTitle: React.FC<StyledTitleProps> = ({ children, color, image }) => {
   return (
-    <AbsoluteFill className="bg-gray-900 items-center justify-center">
+    <AbsoluteFill className={image ? "bg-transparent" : "bg-gray-900"} items-center justify-center>
       <h1
         style={{
           color: color,
