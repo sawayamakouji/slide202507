@@ -236,3 +236,12 @@ GitHub ActionsからGoogle Driveにアクセスするために、サービスア
 ```
 
 この設定が完了すると、`scenario.md`を編集してコミットプッシュするたびに、動画がレンダリングされ、指定したGoogle Driveのフォルダに自動でアップロードされるようになります。
+
+
+
+
+
+https://github.com/user-attachments/assets/1303ae27-a574-48ff-94c7-e8339ac0aed1
+
+
+
