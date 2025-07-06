@@ -16,7 +16,7 @@ export const RemotionRoot = () => {
         width={1920}
         height={1080}
         schema={myVideoSchema}
-        defaultProps={{ scenario: scenario.scenario }}
+        defaultProps={{ scenario: scenario.scenario, backgroundAudio: scenario.backgroundAudio }}
       />
     </>
   );

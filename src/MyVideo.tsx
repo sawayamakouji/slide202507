@@ -27,6 +27,7 @@ export const myVideoSchema = z.object({
       audio: z.string().optional(), // audioプロパティを追加
     })
   ),
+  backgroundAudio: z.string().optional(), // BGM用のプロパティを追加
 });
 
 const useAppearAnimation = (delay: number) => {
@@ -115,11 +116,12 @@ const CodeScene: React.FC<{ description: string; code: string; image?: string }>
   );
 };
 
-export const MyVideo: React.FC<z.infer<typeof myVideoSchema>> = ({ scenario }) => {
+export const MyVideo: React.FC<z.infer<typeof myVideoSchema>> = ({ scenario, backgroundAudio }) => {
   const SCENE_DURATION = 100;
 
   return (
     <AbsoluteFill>
+      {backgroundAudio && <Audio src={staticFile(backgroundAudio)} loop volume={0.3} />}
       {scenario.map((scene, index) => {
         return (
           <Sequence key={index} from={index * SCENE_DURATION} durationInFrames={SCENE_DURATION}>

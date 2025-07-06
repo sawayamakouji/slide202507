@@ -49,7 +49,9 @@
     },
     {
       "type": "info",
-      "image": "/images/download.png"
+      "image": "/images/50.png",
+      "audio": "/audio/suzume.mp3"
     }
-  ]
+  ],
+  "backgroundAudio": "/audio/long.mp3"
 }

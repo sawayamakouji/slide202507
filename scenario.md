@@ -2,6 +2,7 @@
 type: title
 text: Gemini CLIで動画自動生成アプリの使い方
 color: "#FF6F00"
+backgroundAudio: /audio/long.mp3
 ---
 type: info
 title: アプリの概要
@@ -39,5 +40,6 @@ children: 詳しい使い方は readmeファイル読んでくださいなっ！
 audio: /audio/kurae.mp3
 ---
 type: info
-image: /images/download.png
+image: /images/50.png
+audio: /audio/suzume.mp3
 ---

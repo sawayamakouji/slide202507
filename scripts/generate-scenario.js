@@ -5,9 +5,14 @@ const scenarioFile = fs.readFileSync('scenario.md', 'utf-8');
 const parsedMatter = matter(scenarioFile);
 
 const allScenes = [];
+let backgroundAudioPath = undefined;
 
 // 1. Handle the initial front matter (the 'type: title' scene)
 if (Object.keys(parsedMatter.data).length > 0) {
+  if (parsedMatter.data.backgroundAudio) {
+    backgroundAudioPath = parsedMatter.data.backgroundAudio;
+    delete parsedMatter.data.backgroundAudio; // Remove from scene data
+  }
   allScenes.push(parsedMatter.data);
 }
 
@@ -35,6 +40,10 @@ contentSections.forEach((section) => {
 });
 
 // Write the final scenario object to public/scenario.json
-fs.writeFileSync('public/scenario.json', JSON.stringify({ scenario: allScenes }, null, 2));
+const finalOutput = { scenario: allScenes };
+if (backgroundAudioPath) {
+  finalOutput.backgroundAudio = backgroundAudioPath;
+}
+fs.writeFileSync('public/scenario.json', JSON.stringify(finalOutput, null, 2));
 
 console.log('scenario.json generated successfully!');
