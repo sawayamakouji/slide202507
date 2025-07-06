@@ -16,6 +16,6 @@ title: ブラウザで確認
 children: レンダリングされた動画は<br />GitHubからダウンロードできます
 ---
 type: info
-title: 試してみようぜ！
+title: 試してみようぜい！！！
 children: あなたもGemini CLIと<br/>GitHub Actionsで<br/>動画を自動作成！
 ---
