@@ -5,29 +5,39 @@ color: "#FF6F00"
 ---
 type: info
 title: アプリの概要
-children: このアプリは、テキストファイルから<br />簡単なスライド<br />動画を自動生成するツールです。
+children: このアプリは、テキストファイルから<br />動画を自動生成するツールです。
+audio: /audio/boyon.mp3
 ---
 type: info
 title: シナリオの編集
 children: `scenario.md`を編集するだけで<br />動画の内容を簡単に変更できます。
+audio: /audio/light-punch1.mp3
 ---
 type: info
 title: GitHub Actionsで自動生成
 children: `scenario.md`をコミットプッシュすると<br />GitHub Actionsが自動で動画をレンダリングします。
+audio: /audio/wadaiko-don.mp3
 ---
 type: info
 title: Google Driveへの自動アップロード
 children: 設定すれば、レンダリングされた動画は<br />Google Driveに自動でアップロードされます。
+audio: /audio/yatta.mp3
 ---
 type: info
 title: ローカルでの確認
 children: `npm run dev`で、GitHubにプッシュする前に<br />ローカルで動画のプレビューを確認できます。
+audio: /audio/shakiin2.mp3
 ---
 type: info
 title: フォークして使ってみよう！
 children: このリポジトリをフォークすれば<br />あなたも簡単に動画を自動生成できます！
+audio: /audio/piko.mp3
 ---
 type: info
 title: ✌ ✌
-children: 詳しい使い方は readmeファイル読んでくださいなっ！  
+children: 詳しい使い方は readmeファイル読んでくださいなっ！ 
+audio: /audio/kurae.mp3
+---
+type: info
+image: /images/download.png
 ---

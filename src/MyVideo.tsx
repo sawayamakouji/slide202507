@@ -123,7 +123,7 @@ export const MyVideo: React.FC<z.infer<typeof myVideoSchema>> = ({ scenario }) =
       {scenario.map((scene, index) => {
         return (
           <Sequence key={index} from={index * SCENE_DURATION} durationInFrames={SCENE_DURATION}>
-            {scene.audio && <Audio src={scene.audio} />}
+            {scene.audio && <Audio src={staticFile(scene.audio)} />}
             {(() => {
               switch (scene.type) {
                 case 'title':
