@@ -1,54 +1,91 @@
-# Remotion video
+# Gemini CLIで動画自動生成
 
-<p align="center">
-  <a href="https://github.com/remotion-dev/logo">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/remotion-dev/logo/raw/main/animated-logo-banner-dark.gif">
-      <img alt="Animated Remotion Logo" src="https://github.com/remotion-dev/logo/raw/main/animated-logo-banner-light.gif">
-    </picture>
-  </a>
-</p>
+## どんなアプリ？
 
-Welcome to your Remotion project!
+このプロジェクトは、[Remotion](https://www.remotion.dev/) と [GitHub Actions](https://docs.github.com/ja/actions) を使って、**テキストファイルから自動で動画を生成する**アプリです。
 
-## Commands
+`scenario.md`というシンプルなテキストファイルを編集するだけで、GitHubにプッシュすると自動的に動画がレンダリングされ、ダウンロードできるようになります。プログラミングの知識が少なくても、簡単に動画を作れるように設計されています。
 
-**Install Dependencies**
+## 使い方
 
-```console
-npm i
+### 1. 準備するもの
+
+このプロジェクトを動かすには、以下のものが必要です。
+
+*   **Node.js**: バージョン18以上を推奨します。
+*   **npm (Node Package Manager)** または **Yarn**: Node.jsと一緒にインストールされます。
+*   **GitHubアカウント**: 動画の自動生成にはGitHubが必要です。
+
+### 2. プロジェクトのセットアップ (初回のみ)
+
+1.  このリポジトリをあなたのPCにクローンします。
+    ```bash
+    git clone [あなたのリポジトリのURL]
+    cd [クローンしたディレクトリ名]
+    ```
+2.  必要なファイルをインストールします。
+    ```bash
+    npm install
+    # または yarn install
+    ```
+
+### 3. シナリオを編集しよう！ (`scenario.md`)
+
+動画の内容は、`scenario.md`というファイルで管理されています。このファイルをテキストエディタで開いて、動画にしたい内容を書いてみましょう。
+
+`scenario.md`は、以下のような形式で書かれています。
+
+```markdown
+---
+type: title
+text: あなたの動画のタイトル
+color: "#FF6F00"
+---
+type: info
+title: シーンのタイトル
+children: このシーンで伝えたい内容を<br />ここに書きます。
+---
 ```
 
-**Start Preview**
+*   `---` で区切られたブロックが、動画の1つの「シーン」になります。
+*   `type: title` は動画のタイトルシーン、`type: info` は情報表示シーンです。
+*   `text:`, `title:`, `children:` の後に、表示したいテキストを書きます。
+*   `<br />` を使うと、改行できます。
 
-```console
-npm run dev
+### 4. 動画を自動生成しよう！ (GitHub Actions)
+
+`scenario.md`を編集して保存したら、その変更をGitHubにプッシュするだけです。
+
+1.  変更をコミットします。
+    ```bash
+    git add scenario.md
+    git commit -m "feat: シナリオを更新しました"
+    ```
+2.  GitHubにプッシュします。
+    ```bash
+    git push origin main
+    ```
+
+プッシュが完了すると、GitHub上で自動的に動画のレンダリングが開始されます。
+
+### 5. 生成された動画をダウンロードしよう！
+
+動画のレンダリングが完了したら、以下の手順でダウンロードできます。
+
+1.  GitHubのリポジトリページを開きます。
+2.  上部にある「**Actions**」タブをクリックします。
+3.  左側のサイドバーで「**Render Remotion Video**」というワークフローを選び、最新の実行（緑色のチェックマークがついているものが成功です）をクリックします。
+4.  実行の詳細ページの下の方に「**Artifacts (アーティファクト)**」というセクションがあります。「**rendered-video**」という名前のファイルをダウンロードしてください。
+
+これで、あなたの作った動画が手に入ります！
+
+## ローカルで開発・確認したい場合
+
+GitHubにプッシュする前に、自分のPCで動画のプレビューを確認したい場合は、以下のコマンドを実行します。
+
+```bash
+npm start
+# または yarn start
 ```
 
-**Render video**
-
-```console
-npx remotion render
-```
-
-**Upgrade Remotion**
-
-```console
-npx remotion upgrade
-```
-
-## Docs
-
-Get started with Remotion by reading the [fundamentals page](https://www.remotion.dev/docs/the-fundamentals).
-
-## Help
-
-We provide help on our [Discord server](https://discord.gg/6VzzNDwUwV).
-
-## Issues
-
-Found an issue with Remotion? [File an issue here](https://github.com/remotion-dev/remotion/issues/new).
-
-## License
-
-Note that for some entities a company license is needed. [Read the terms here](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md).
+ブラウザが自動的に開き、動画のプレビューが表示されます。変更を保存すると、リアルタイムでプレビューが更新されます。
