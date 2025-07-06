@@ -12,7 +12,7 @@ title: コミットするだけ
 children: シナリオをコミットすれば<br />GitHub Actionsが自動で動画をレンダリング
 ---
 type: info
-title: ブラウザで確認
+title: ブラウザで確認！！
 children: レンダリングされた動画は<br />GitHubからダウンロードできます
 ---
 type: info

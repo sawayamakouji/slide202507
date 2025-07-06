@@ -85,7 +85,7 @@ const CodeScene: React.FC<{ description: string; code: string }> = ({ descriptio
       </p>
       <code
         style={codeAnim}
-        className="bg-gray-800 border-2 border-gray-700 text-emerald-300 p-8 rounded-lg text-6xl font-mono"
+        className="bg-gray-800 border-2 border-gray-700 text-emerald-300 p-8 rounded-lg text-6xl font-mono font-noto-sans-jp"
       >
         {code}
       </code>
