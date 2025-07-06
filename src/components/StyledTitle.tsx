@@ -19,7 +19,7 @@ export const StyledTitle: React.FC<StyledTitleProps> = ({ children, color, image
       <h1
         style={{
           color: color,
-          fontSize: '18rem',
+          fontSize: '10rem',
         }}
         className="font-extrabold tracking-tighter text-center font-noto-sans-jp"
       >

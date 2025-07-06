@@ -53,9 +53,9 @@ const useAppearAnimation = (delay: number) => {
 const TitleScene: React.FC<{ text: string; color: string; image?: string }> = ({ text, color, image }) => {
   const animation = useAppearAnimation(0);
   return (
-    <div style={animation}>
+    <AbsoluteFill style={animation}>
       <StyledTitle color={color} image={image}>{text}</StyledTitle>
-    </div>
+    </AbsoluteFill>
   );
 };
 
@@ -65,15 +65,27 @@ const InfoScene: React.FC<{ title: string; children: string; image?: string }> =
   const contentAnim = useAppearAnimation(15);
 
   return (
-    <AbsoluteFill className={image ? "bg-transparent" : "bg-gray-900"} items-center justify-center text-center p-8>
-      <h2 style={titleAnim} className="text-8xl font-bold text-white mb-12 drop-shadow-lg">
-        {title}
-      </h2>
-      <div
-        style={contentAnim}
-        className="text-7xl text-white font-bold max-w-5xl leading-tight drop-shadow-lg"
-        dangerouslySetInnerHTML={{ __html: children }}
-      />
+    <AbsoluteFill
+      style={{
+        backgroundImage: image ? `url(${staticFile(image)})` : undefined,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundColor: image ? undefined : 'rgb(17 24 39)', // Equivalent to bg-gray-900
+      }}
+      className="items-center justify-center text-center p-8"
+    >
+      {title && (
+        <h2 style={titleAnim} className="text-8xl font-bold text-white mb-12 drop-shadow-lg">
+          {title}
+        </h2>
+      )}
+      {children && (
+        <div
+          style={contentAnim}
+          className="text-7xl text-white font-bold max-w-5xl leading-tight drop-shadow-lg"
+          dangerouslySetInnerHTML={{ __html: children }}
+        />
+      )}
     </AbsoluteFill>
   );
 };
@@ -119,9 +131,9 @@ export const MyVideo: React.FC<z.infer<typeof myVideoSchema>> = ({ scenario }) =
                     <TitleScene text={scene.text} color={scene.color} image={scene.image} />
                   ) : null;
                 case 'info':
-                  return scene.title && scene.children ? (
+                  return (
                     <InfoScene title={scene.title} children={scene.children} image={scene.image} />
-                  ) : null;
+                  );
                 case 'code':
                   return scene.description && scene.code ? (
                     <CodeScene description={scene.description} code={scene.code} image={scene.image} />

@@ -16,8 +16,6 @@ title: ブラウザで確認！！
 children: レンダリングされた動画は<br />GitHubからダウンロードできます
 ---
 type: info
-title: 画像付きのシーン
-children: このシーンには画像が表示されます。
 image: /images/download.png
 ---
 type: info
