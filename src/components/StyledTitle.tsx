@@ -9,7 +9,13 @@ type StyledTitleProps = {
 
 export const StyledTitle: React.FC<StyledTitleProps> = ({ children, color, image }) => {
   return (
-    <AbsoluteFill className={image ? "bg-transparent" : "bg-gray-900"} items-center justify-center>
+    <AbsoluteFill
+      style={{
+        backgroundImage: image ? `url(${staticFile(image)})` : undefined,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+      className={image ? "" : "bg-gray-900"} items-center justify-center>
       <h1
         style={{
           color: color,

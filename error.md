@@ -1,83 +1,52 @@
-index.mjs:5414 EncodingError: The source image cannot be decoded.
-(anonymous) @ index.mjs:5414
-Promise.catch
-(anonymous) @ index.mjs:5413
-commitHookEffectListMount @ react-dom.development.js:23189
-commitLayoutEffectOnFiber @ react-dom.development.js:23307
-commitLayoutMountEffects_complete @ react-dom.development.js:24727
-commitLayoutEffects_begin @ react-dom.development.js:24713
-commitLayoutEffects_begin @ react-dom.development.js:24695
-commitLayoutEffects @ react-dom.development.js:24651
-commitRootImpl @ react-dom.development.js:26862
-commitRoot @ react-dom.development.js:26721
-finishConcurrentRender @ react-dom.development.js:26020
-performConcurrentWorkOnRoot @ react-dom.development.js:25848
-workLoop @ scheduler.development.js:266
-flushWork @ scheduler.development.js:239
-performWorkUntilDeadline @ scheduler.development.js:533Understand this warning
-index.mjs:5363 Could not load image with source http://192.168.3.2:3000/images/download.png, retrying again in 1000ms
-(anonymous) @ index.mjs:5363
-callCallback @ react-dom.development.js:4164
-invokeGuardedCallbackDev @ react-dom.development.js:4213
-invokeGuardedCallback @ react-dom.development.js:4277
-invokeGuardedCallbackAndCatchFirstError @ react-dom.development.js:4291
-executeDispatch @ react-dom.development.js:9041
-processDispatchQueueItemsInOrder @ react-dom.development.js:9073
-processDispatchQueue @ react-dom.development.js:9086
-dispatchEventsForPlugins @ react-dom.development.js:9097
-(anonymous) @ react-dom.development.js:9288
-batchedUpdates$1 @ react-dom.development.js:26179
-batchedUpdates @ react-dom.development.js:3991
-dispatchEventForPluginEventSystem @ react-dom.development.js:9287
-dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ react-dom.development.js:6465
-dispatchEvent @ react-dom.development.js:6457Understand this warning
-index.mjs:5363 Could not load image with source http://192.168.3.2:3000/images/download.png, retrying again in 2000ms
-(anonymous) @ index.mjs:5363
-callCallback @ react-dom.development.js:4164
-invokeGuardedCallbackDev @ react-dom.development.js:4213
-invokeGuardedCallback @ react-dom.development.js:4277
-invokeGuardedCallbackAndCatchFirstError @ react-dom.development.js:4291
-executeDispatch @ react-dom.development.js:9041
-processDispatchQueueItemsInOrder @ react-dom.development.js:9073
-processDispatchQueue @ react-dom.development.js:9086
-dispatchEventsForPlugins @ react-dom.development.js:9097
-(anonymous) @ react-dom.development.js:9288
-batchedUpdates$1 @ react-dom.development.js:26179
-batchedUpdates @ react-dom.development.js:3991
-dispatchEventForPluginEventSystem @ react-dom.development.js:9287
-dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ react-dom.development.js:6465
-dispatchEvent @ react-dom.development.js:6457Understand this warning
-index.mjs:5414 EncodingError: The source image cannot be decoded.
-(anonymous) @ index.mjs:5414
-Promise.catch
-(anonymous) @ index.mjs:5413
-commitHookEffectListMount @ react-dom.development.js:23189
-commitLayoutEffectOnFiber @ react-dom.development.js:23307
-commitLayoutMountEffects_complete @ react-dom.development.js:24727
-commitLayoutEffects_begin @ react-dom.development.js:24713
-commitLayoutEffects_begin @ react-dom.development.js:24695
-commitLayoutEffects @ react-dom.development.js:24651
-commitRootImpl @ react-dom.development.js:26862
-commitRoot @ react-dom.development.js:26721
-finishConcurrentRender @ react-dom.development.js:26020
-performConcurrentWorkOnRoot @ react-dom.development.js:25848
-workLoop @ scheduler.development.js:266
-flushWork @ scheduler.development.js:239
-performWorkUntilDeadline @ scheduler.development.js:533Understand this warning
-index.mjs:5363 Could not load image with source http://192.168.3.2:3000/images/download.png, retrying again in 1000ms
-(anonymous) @ index.mjs:5363
-callCallback @ react-dom.development.js:4164
-invokeGuardedCallbackDev @ react-dom.development.js:4213
-invokeGuardedCallback @ react-dom.development.js:4277
-invokeGuardedCallbackAndCatchFirstError @ react-dom.development.js:4291
-executeDispatch @ react-dom.development.js:9041
-processDispatchQueueItemsInOrder @ react-dom.development.js:9073
-processDispatchQueue @ react-dom.development.js:9086
-dispatchEventsForPlugins @ react-dom.development.js:9097
-(anonymous) @ react-dom.development.js:9288
-batchedUpdates$1 @ react-dom.development.js:26179
-batchedUpdates @ react-dom.development.js:3991
-dispatchEventForPluginEventSystem @ react-dom.development.js:9287
-dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ react-dom.development.js:6465
-dispatchEvent @ react-dom.development.js:6457Understand this warning
-index.mjs:5363 Could not load image with source http://192.168.3.2:3000/images/download.png, retrying again in 2000ms
+proxy-console.js:59 Warning: Received `true` for a non-boolean attribute `p-8`.
+
+If you want to write it to the DOM, pass a string instead: p-8="true" or p-8={value.toString()}.
+    at div
+    at AbsoluteFillRefForwarding (http://192.168.3.2:3000/bundle.js:113583:11)
+    at InfoScene (http://192.168.3.2:3000/bundle.js:66:22)
+    at div
+    at AbsoluteFillRefForwarding (http://192.168.3.2:3000/bundle.js:113583:11)
+    at RegularSequenceRefForwardingFunction (http://192.168.3.2:3000/bundle.js:114711:3)
+    at SequenceRefForwardingFunction (http://192.168.3.2:3000/bundle.js:114883:13)
+    at div
+    at AbsoluteFillRefForwarding (http://192.168.3.2:3000/bundle.js:113583:11)
+    at MyVideo (http://192.168.3.2:3000/bundle.js:96:20)
+    at Suspense
+    at CanUseRemotionHooksProvider (http://192.168.3.2:3000/bundle.js:114567:38)
+    at InnerComposition (http://192.168.3.2:3000/bundle.js:118276:3)
+    at Composition (http://192.168.3.2:3000/bundle.js:118382:86)
+    at RemotionRoot
+    at div
+    at TimelineZoomContext (http://192.168.3.2:3000/bundle.js:58048:32)
+    at div
+    at HigherZIndex (http://192.168.3.2:3000/bundle.js:58145:25)
+    at Editor (http://192.168.3.2:3000/bundle.js:32683:19)
+    at SetTimelineInOutProvider (http://192.168.3.2:3000/bundle.js:46269:37)
+    at HighestZIndexProvider (http://192.168.3.2:3000/bundle.js:57553:34)
+    at FolderContextProvider (http://192.168.3.2:3000/bundle.js:57518:34)
+    at SidebarContextProvider (http://192.168.3.2:3000/bundle.js:57989:35)
+    at PlayerEmitterProvider (http://192.168.3.2:3000/bundle.js:110222:32)
+    at MediaVolumeProvider (http://192.168.3.2:3000/bundle.js:34418:32)
+    at ModalsProvider (http://192.168.3.2:3000/bundle.js:35245:27)
+    at PreviewSizeProvider (http://192.168.3.2:3000/bundle.js:57867:32)
+    at ShowGuidesProvider (http://192.168.3.2:3000/bundle.js:46299:31)
+    at ShowRulersProvider (http://192.168.3.2:3000/bundle.js:46353:31)
+    at ZoomGesturesProvider (http://192.168.3.2:3000/bundle.js:50816:33)
+    at CheckerboardProvider (http://192.168.3.2:3000/bundle.js:31830:33)
+    at KeybindingContextProvider (http://192.168.3.2:3000/bundle.js:57677:38)
+    at RenderQueueContextProvider (http://192.168.3.2:3000/bundle.js:45881:39)
+    at PreviewServerConnection (http://192.168.3.2:3000/bundle.js:53163:36)
+    at VisualControlsProvider (http://192.168.3.2:3000/bundle.js:58251:35)
+    at ZodProvider (http://192.168.3.2:3000/bundle.js:51003:24)
+    at EditorContexts (http://192.168.3.2:3000/bundle.js:32792:27)
+    at BufferingProvider (http://192.168.3.2:3000/bundle.js:116886:28)
+    at DurationsContextProvider (http://192.168.3.2:3000/bundle.js:115981:35)
+    at SharedAudioContextProvider (http://192.168.3.2:3000/bundle.js:116211:37)
+    at ResolveCompositionConfig (http://192.168.3.2:3000/bundle.js:114156:35)
+    at RenderAssetManagerProvider (http://192.168.3.2:3000/bundle.js:115444:37)
+    at SequenceManagerProvider (http://192.168.3.2:3000/bundle.js:113677:34)
+    at CompositionManagerProvider (http://192.168.3.2:3000/bundle.js:118792:3)
+    at PrefetchProvider (http://192.168.3.2:3000/bundle.js:115651:27)
+    at EditorPropsProvider (http://192.168.3.2:3000/bundle.js:113798:30)
+    at RemotionRoot (http://192.168.3.2:3000/bundle.js:118997:3)
+    at Studio (http://192.168.3.2:3000/bundle.js:30267:19)

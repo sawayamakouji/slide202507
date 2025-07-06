@@ -5,7 +5,6 @@ import {
   useCurrentFrame,
   useVideoConfig,
   spring,
-  Img, // Imgコンポーネントを追加
   Audio, // Audioコンポーネントを追加
   staticFile, // staticFileを追加
 } from 'remotion';
@@ -79,18 +78,24 @@ const InfoScene: React.FC<{ title: string; children: string; image?: string }> =
   );
 };
 
-const CodeScene: React.FC<{ description: string; code: string }> = ({ description, code }) => {
+const CodeScene: React.FC<{ description: string; code: string; image?: string }> = ({ description, code, image }) => {
   const descAnim = useAppearAnimation(0);
   const codeAnim = useAppearAnimation(15);
 
   return (
-    <AbsoluteFill className="bg-gray-900 items-center justify-center text-center p-8">
-      <p style={descAnim} className="text-7xl text-white mb-12 font-bold drop-shadow-lg">
+    <AbsoluteFill
+      style={{
+        backgroundImage: image ? `url(${staticFile(image)})` : undefined,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+      className={image ? "" : "bg-gray-900"} items-center justify-center text-center p-8>
+      <p style={descAnim} className="text-7xl text-white mb-12 font-bold drop-shadow-lg text-center font-noto-sans-jp">
         {description}
       </p>
       <code
         style={codeAnim}
-        className="bg-gray-800 border-2 border-gray-700 text-emerald-300 p-8 rounded-lg text-6xl font-mono font-noto-sans-jp"
+        className="bg-gray-800 border-2 border-gray-700 text-emerald-300 p-8 rounded-lg text-6xl font-mono font-noto-sans-jp text-center"
       >
         {code}
       </code>
@@ -106,17 +111,6 @@ export const MyVideo: React.FC<z.infer<typeof myVideoSchema>> = ({ scenario }) =
       {scenario.map((scene, index) => {
         return (
           <Sequence key={index} from={index * SCENE_DURATION} durationInFrames={SCENE_DURATION}>
-            {scene.image && (
-              <Img
-                src={staticFile(scene.image)}
-                style={{
-                  position: 'absolute',
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                }}
-              />
-            )}
             {scene.audio && <Audio src={scene.audio} />}
             {(() => {
               switch (scene.type) {
