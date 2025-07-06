@@ -29,5 +29,5 @@ children: このリポジトリをフォークすれば<br />あなたも簡単�
 ---
 type: info
 title: ✌
-children: 詳しい使い方は readmeファイル読んでくださいな！  
+children: 詳しい使い方は readmeファイル読んでくださいなっ！  
 ---

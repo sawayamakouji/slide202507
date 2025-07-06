@@ -39,7 +39,7 @@ jobs:
           path: out/video.mp4 # レンダリングされた動画をアップロード
 
       - name: Upload video to Google Drive
-        uses: willo32/google-drive-upload-action@v1.2.0
+        uses: willo32/google-drive-upload-action@v1.1.0
         with:
           credentials: ${{ secrets.GDRIVE_SERVICE_ACCOUNT_KEY }}
           folderId: ${{ secrets.GDRIVE_FOLDER_ID }} # ここをあなたのフォルダIDに置き換えてください
