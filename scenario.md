@@ -5,7 +5,7 @@ color: "#FF6F00"
 ---
 type: info
 title: シナリオはGemini CLIで
-children: Gemini CLIに話しかけるだけで<br />動画のシナリオが書けます
+children: Gemini CLIに話しかけるだけで<br />動画のシナリオが描いてもらってシナリオ.mdに
 ---
 type: info
 title: コミットするだけ
