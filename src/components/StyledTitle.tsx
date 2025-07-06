@@ -1,5 +1,5 @@
 import React from 'react';
-import { AbsoluteFill } from 'remotion';
+import { AbsoluteFill, staticFile } from 'remotion';
 
 type StyledTitleProps = {
   children: React.ReactNode;
@@ -15,7 +15,7 @@ export const StyledTitle: React.FC<StyledTitleProps> = ({ children, color, image
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
-      className={image ? "" : "bg-gray-900"} items-center justify-center>
+      className={`${image ? "" : "bg-gray-900"} items-center justify-center`}>
       <h1
         style={{
           color: color,

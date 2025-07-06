@@ -50,11 +50,11 @@ const useAppearAnimation = (delay: number) => {
 };
 
 // シーン1: タイトル
-const TitleScene: React.FC<{ text: string; color: string }> = ({ text, color }) => {
+const TitleScene: React.FC<{ text: string; color: string; image?: string }> = ({ text, color, image }) => {
   const animation = useAppearAnimation(0);
   return (
     <div style={animation}>
-      <StyledTitle color={color}>{text}</StyledTitle>
+      <StyledTitle color={color} image={image}>{text}</StyledTitle>
     </div>
   );
 };
@@ -89,7 +89,7 @@ const CodeScene: React.FC<{ description: string; code: string; image?: string }>
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
-      className={image ? "" : "bg-gray-900"} items-center justify-center text-center p-8>
+      className={`${image ? "" : "bg-gray-900"} items-center justify-center text-center p-8`}>
       <p style={descAnim} className="text-7xl text-white mb-12 font-bold drop-shadow-lg text-center font-noto-sans-jp">
         {description}
       </p>

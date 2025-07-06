@@ -9,7 +9,11 @@ export default [
   // 次に、新しいルールをオブジェクトとして追加します
   {
     // このルールは、以下のファイルにのみ適用されます
-    files: ["tailwind.config.js", "postcss.config.js"],
+    files: ["tailwind.config.js", "postcss.config.js", "scripts/generate-scenario.js"],
+
+    rules: {
+      "@typescript-eslint/no-require-imports": "off", // generate-scenario.jsではrequireを許可
+    },
 
     // 言語設定
     languageOptions: {
