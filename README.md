@@ -183,3 +183,56 @@ npm start
 ```
 
 ブラウザが自動的に開き、動画のプレビューが表示されます。変更を保存すると、リアルタイムでプレビューが更新されます。
+
+## 動画をGoogle Driveに自動アップロードする設定
+
+レンダリングされた動画をGitHubからダウンロードする手間を省き、Google Driveに自動でアップロードするように設定できます。この設定は、各リポジトリ（フォークしたリポジトリも含む）で個別に行う必要があります。
+
+### 1. Google Cloud Platform (GCP) での準備
+
+GitHub ActionsからGoogle Driveにアクセスするために、サービスアカウントと認証情報が必要です。
+
+1.  **Google Cloud Consoleにアクセス**: `https://console.cloud.google.com/` にアクセスし、Googleアカウントでログインします。
+2.  **プロジェクトの作成または選択**: 画面上部のプロジェクト選択ドロップダウンから、新しいプロジェクトを作成するか、既存のプロジェクトを選択します。
+3.  **Google Drive APIを有効にする**: 左側のナビゲーションメニューから「**API とサービス**」→「**ライブラリ**」を選択し、「`Google Drive API`」を検索して有効にします。
+4.  **サービスアカウントの作成**: 左側のナビゲーションメニューから「**IAM と管理**」→「**サービスアカウント**」を選択し、「**サービスアカウントを作成**」をクリックします。サービスアカウント名を入力し、「作成して続行」→「完了」をクリックします。
+5.  **サービスアカウントキーの生成**: 作成したサービスアカウントのメールアドレスをクリックし、「**キー**」タブを選択します。「**鍵を追加**」→「**新しい鍵を作成**」をクリックし、キーのタイプを「**JSON**」として「**作成**」をクリックします。JSONファイルが自動的にダウンロードされます。**このファイルは機密情報なので、絶対に公開しないでください。**
+
+### 2. Google Driveでの準備
+
+動画をアップロードするGoogle Driveのフォルダを準備し、サービスアカウントと共有します。
+
+1.  **アップロード先フォルダの作成または選択**: Google Driveで、動画をアップロードしたいフォルダを作成するか、既存のフォルダを選択します。
+2.  **フォルダIDの取得**: フォルダを開いた際のブラウザのURLを確認します。`https://drive.google.com/drive/folders/`**`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`** の `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` の部分がフォルダIDです。
+3.  **フォルダの共有設定**: フォルダを右クリックし、「**共有**」を選択します。「ユーザーやグループと共有」の欄に、先ほど作成したサービスアカウントのメールアドレス（例: `remotion-uploader@your-project-id.iam.gserviceaccount.com`）を入力し、権限を「**編集者**」として「送信」をクリックします。
+
+### 3. GitHubリポジトリでの設定
+
+取得した認証情報とフォルダIDをGitHubのシークレットに安全に登録します。
+
+1.  **GitHubリポジトリのSettingsにアクセス**: あなたのリポジトリページで「**Settings**」タブをクリックします。
+2.  **Secrets and variablesに移動**: 左側のサイドバーで「**Secrets and variables**」→「**Actions**」を選択します。
+3.  **サービスアカウントキーの登録**: 「**New repository secret**」をクリックし、以下の情報を入力します。
+    *   **Name**: `GDRIVE_SERVICE_ACCOUNT_KEY`
+    *   **Secret**: ダウンロードしたJSONファイルの中身をすべて貼り付けます。
+    *   「**Add secret**」をクリックします。
+4.  **Google DriveフォルダIDの登録**: 再度「**New repository secret**」をクリックし、以下の情報を入力します。
+    *   **Name**: `GDRIVE_FOLDER_ID`
+    *   **Secret**: 取得したGoogle DriveのフォルダIDを貼り付けます。
+    *   「**Add secret**」をクリックします。
+
+### 4. GitHub Actionsワークフローの修正
+
+最後に、`.github/workflows/render.yml`ファイルを修正して、Google Driveへのアップロードステップを有効にします。この修正は、すでにGemini CLIによって行われています。
+
+```yaml
+      - name: Upload video to Google Drive
+        uses: adityamukho/google-drive-upload-action@v1.2.0
+        with:
+          credentials: ${{ secrets.GDRIVE_SERVICE_ACCOUNT_KEY }}
+          folderId: ${{ secrets.GDRIVE_FOLDER_ID }}
+          filePath: out/video.mp4
+          fileName: remotion_video_${{ github.run_number }}.mp4
+```
+
+この設定が完了すると、`scenario.md`を編集してコミットプッシュするたびに、動画がレンダリングされ、指定したGoogle Driveのフォルダに自動でアップロードされるようになります。
