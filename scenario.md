@@ -28,6 +28,6 @@ title: フォークして使ってみよう！
 children: このリポジトリをフォークすれば<br />あなたも簡単に動画を自動生成できます！
 ---
 type: info
-title: ✌  ✌
+title: ✌ ✌
 children: 詳しい使い方は readmeファイル読んでくださいなっ！  
 ---

@@ -44,6 +44,6 @@ jobs:
         if: ${{ always() }}               # ← 常に実行（前ステップの結果にかかわらず）
         with:
           credentials: ${{ secrets.GDRIVE_SERVICE_ACCOUNT_KEY }}
-          folderId:      ${{ secrets.GDRIVE_FOLDER_ID }}
-          filePath:      out/video.mp4
-          fileName:      remotion_video_${{ github.run_number }}.mp4
+          parent_folder_id: ${{ secrets.GDRIVE_FOLDER_ID }} # ここを修正
+          target: out/video.mp4 # ここを修正
+          name: remotion_video_${{ github.run_number }}.mp4 # ここを修正
