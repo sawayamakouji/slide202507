@@ -1,17 +1,24 @@
-import "./index.css";
 import { Composition } from "remotion";
-import { MyComposition } from "./Composition";
+import { MyVideo, myVideoSchema } from "./MyVideo";
+import './index.css';
+import scenario from '../public/scenario.json'; // public/scenario.json を直接インポート
 
-export const RemotionRoot: React.FC = () => {
+export const RemotionRoot = () => {
+  const SCENE_DURATION = 100; // 各シーンの長さを定義
+
   return (
     <>
       <Composition
-        id="MyComp"
-        component={MyComposition}
-        durationInFrames={60}
+        id="MyVideo"
+        component={MyVideo}
+        durationInFrames={scenario.length * SCENE_DURATION} // シーン数に応じて長さを変更
         fps={30}
-        width={1280}
-        height={720}
+        width={1920}
+        height={1080}
+        schema={myVideoSchema}
+        defaultProps={{
+          scenario: scenario, // パースしたシナリオをPropsとして渡す
+        }}
       />
     </>
   );
