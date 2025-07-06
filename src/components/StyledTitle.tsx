@@ -14,7 +14,7 @@ export const StyledTitle: React.FC<StyledTitleProps> = ({ children, color }) => 
           color: color,
           fontSize: '18rem',
         }}
-        className="font-extrabold tracking-tighter text-center"
+        className="font-extrabold tracking-tighter text-center font-noto-sans-jp"
       >
         {children}
       </h1>
