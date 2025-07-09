@@ -1,6 +1,6 @@
 ---
 type: title
-text: Excelショートカット<br />厳選20選
+text: Excelショートカット厳選20選
 color: "#1D6F42"
 ---
 type: info
